@@ -1,26 +1,455 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * =========================================================
+ * MEG ELECTRICAL SOLUTIONS
+ * Global Design System
+ *
+ * Brand:
+ * - Industrial Black
+ * - Warm White
+ * - Signature Neon Green
+ * - Neutral Steel
+ * =========================================================
+ */
 
 @theme inline {
+  /* Typography */
+  --font-sans: "Arial", "Helvetica Neue", sans-serif;
+  --font-mono: "SFMono-Regular", "Cascadia Code", "Roboto Mono", monospace;
+  --font-heading: "Arial Black", "Arial", sans-serif;
+  --font-display: "Arial Black", "Arial", sans-serif;
+
+  /* Radius */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  /* Core colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Charts */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Sidebar */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* MEG brand tokens */
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+
+  /* Signature neon */
+  --color-neon: var(--neon);
+  --color-neon-foreground: var(--neon-foreground);
+
+  /* Steel */
+  --color-steel: var(--steel);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/*
+ * =========================================================
+ * LIGHT THEME
+ * =========================================================
+ */
+
+:root {
+  --radius: 0.35rem;
+
+  /* Base */
+  --background: oklch(0.975 0.008 70);
+  --foreground: oklch(0.12 0.008 45);
+
+  /* Cards */
+  --card: oklch(0.99 0.005 70);
+  --card-foreground: oklch(0.12 0.008 45);
+
+  /* Popovers */
+  --popover: oklch(0.99 0.005 70);
+  --popover-foreground: oklch(0.12 0.008 45);
+
+  /*
+   * =======================================================
+   * MEG PRIMARY
+   *
+   * Signature neon green from the original Lovable design.
+   * =======================================================
+   */
+  --primary: oklch(0.92 0.249 123.5);
+  --primary-foreground: oklch(0.09 0 0);
+
+  /* Secondary */
+  --secondary: oklch(0.92 0.012 65);
+  --secondary-foreground: oklch(0.15 0.008 45);
+
+  /* Muted */
+  --muted: oklch(0.93 0.01 65);
+  --muted-foreground: oklch(0.45 0.015 50);
+
+  /* Accent = same MEG neon */
+  --accent: oklch(0.92 0.249 123.5);
+  --accent-foreground: oklch(0.09 0 0);
+
+  /* Destructive */
+  --destructive: oklch(0.58 0.22 28);
+  --destructive-foreground: oklch(0.98 0.005 70);
+
+  /* Borders */
+  --border: oklch(0.84 0.012 60);
+  --input: oklch(0.84 0.012 60);
+
+  /* Focus */
+  --ring: oklch(0.78 0.21 123.5);
+
+  /* Charts */
+  --chart-1: oklch(0.92 0.249 123.5);
+  --chart-2: oklch(0.28 0.01 45);
+  --chart-3: oklch(0.48 0.02 50);
+  --chart-4: oklch(0.75 0.08 45);
+  --chart-5: oklch(0.60 0.10 35);
+
+  /* Sidebar */
+  --sidebar: oklch(0.12 0.008 45);
+  --sidebar-foreground: oklch(0.96 0.006 70);
+
+  --sidebar-primary: oklch(0.92 0.249 123.5);
+  --sidebar-primary-foreground: oklch(0.09 0 0);
+
+  --sidebar-accent: oklch(0.20 0.01 45);
+  --sidebar-accent-foreground: oklch(0.96 0.006 70);
+
+  --sidebar-border: oklch(0.28 0.01 45);
+  --sidebar-ring: oklch(0.78 0.21 123.5);
+
+  /* =====================================================
+   * MEG BRAND TOKENS
+   * ===================================================== */
+
+  /* Deep industrial black */
+  --ink: oklch(0.075 0.005 45);
+
+  /* Warm white */
+  --paper: oklch(0.975 0.008 70);
+
+  /* Industrial surface */
+  --surface: oklch(0.935 0.012 65);
+
+  /* Signature neon green */
+  --neon: oklch(0.92 0.249 123.5);
+  --neon-foreground: oklch(0.09 0 0);
+
+  /* Neutral steel */
+  --steel: oklch(0.42 0.012 50);
+}
+
+/*
+ * =========================================================
+ * DARK THEME
+ * =========================================================
+ */
+
+.dark {
+  /* Base */
+  --background: oklch(0.105 0.006 45);
+  --foreground: oklch(0.965 0.006 70);
+
+  /* Cards */
+  --card: oklch(0.145 0.008 45);
+  --card-foreground: oklch(0.965 0.006 70);
+
+  /* Popovers */
+  --popover: oklch(0.145 0.008 45);
+  --popover-foreground: oklch(0.965 0.006 70);
+
+  /*
+   * MEG neon remains the primary brand color
+   */
+  --primary: oklch(0.92 0.249 123.5);
+  --primary-foreground: oklch(0.075 0.005 45);
+
+  /* Secondary */
+  --secondary: oklch(0.20 0.009 45);
+  --secondary-foreground: oklch(0.965 0.006 70);
+
+  /* Muted */
+  --muted: oklch(0.20 0.009 45);
+  --muted-foreground: oklch(0.70 0.012 65);
+
+  /* Accent */
+  --accent: oklch(0.92 0.249 123.5);
+  --accent-foreground: oklch(0.075 0.005 45);
+
+  /* Destructive */
+  --destructive: oklch(0.65 0.20 28);
+  --destructive-foreground: oklch(0.98 0.005 70);
+
+  /* Borders */
+  --border: oklch(0.30 0.012 45);
+  --input: oklch(0.30 0.012 45);
+
+  /* Focus */
+  --ring: oklch(0.92 0.249 123.5);
+
+  /* Charts */
+  --chart-1: oklch(0.92 0.249 123.5);
+  --chart-2: oklch(0.76 0.08 65);
+  --chart-3: oklch(0.55 0.015 50);
+  --chart-4: oklch(0.82 0.04 65);
+  --chart-5: oklch(0.45 0.02 45);
+
+  /* Sidebar */
+  --sidebar: oklch(0.075 0.005 45);
+  --sidebar-foreground: oklch(0.965 0.006 70);
+
+  --sidebar-primary: oklch(0.92 0.249 123.5);
+  --sidebar-primary-foreground: oklch(0.075 0.005 45);
+
+  --sidebar-accent: oklch(0.17 0.008 45);
+  --sidebar-accent-foreground: oklch(0.965 0.006 70);
+
+  --sidebar-border: oklch(0.25 0.01 45);
+  --sidebar-ring: oklch(0.92 0.249 123.5);
+
+  /* MEG brand */
+  --ink: oklch(0.075 0.005 45);
+  --paper: oklch(0.965 0.006 70);
+  --surface: oklch(0.15 0.008 45);
+
+  --neon: oklch(0.92 0.249 123.5);
+  --neon-foreground: oklch(0.075 0.005 45);
+
+  --steel: oklch(0.62 0.012 55);
+}
+
+/*
+ * =========================================================
+ * BASE
+ * =========================================================
+ */
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    font-family: var(--font-sans);
+    background: var(--color-background);
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    letter-spacing: 0;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+  }
+
+  a,
+  button {
+    outline-offset: 4px;
+  }
+
+  ::selection {
+    background: var(--primary);
+    color: var(--primary-foreground);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/*
+ * =========================================================
+ * INDUSTRIAL GRID
+ * =========================================================
+ */
+
+@utility industrial-grid {
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in oklab, var(--paper) 8%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--paper) 8%, transparent) 1px,
+      transparent 1px
+    );
+
+  background-size: 64px 64px;
+}
+
+/*
+ * =========================================================
+ * EYEBROW
+ * =========================================================
+ */
+
+@utility eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  color: var(--primary);
+
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 800;
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  &::before {
+    content: "";
+
+    width: 2.5rem;
+    height: 2px;
+
+    flex-shrink: 0;
+
+    background: currentColor;
+  }
+}
+
+/*
+ * =========================================================
+ * NAVIGATION
+ * =========================================================
+ */
+
+@utility nav-link {
+  position: relative;
+
+  &::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 100%;
+    bottom: -0.5rem;
+
+    height: 2px;
+
+    background: var(--primary);
+
+    transition:
+      right 220ms ease,
+      background-color 220ms ease;
+  }
+
+  &:hover::after {
+    right: 0;
+  }
+}
+
+/*
+ * =========================================================
+ * REDUCED MOTION
+ * =========================================================
+ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+.animate-marquee-custom {
+  animation: marquee 32s linear infinite;
+}
+
+.animate-marquee-custom:hover {
+  animation-play-state: paused;
+}
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+}
+
+/* Globally hide scrollbars on the html/body element while maintaining scrolling */
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+html::-webkit-scrollbar {
+  display: none;
 }

@@ -1,0 +1,93 @@
+/**
+ * MEG Electrical Solutions
+ * Intro animation
+ */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+
+  width: 100%;
+  height: 100dvh;
+
+  overflow: hidden;
+  isolation: isolate;
+
+  /*
+   * Keep this aligned with the first frame/background
+   * of the MEG intro video.
+   */
+  background: #f4f0e1;
+
+  pointer-events: auto;
+  touch-action: none;
+  overscroll-behavior: none;
+
+  opacity: 1;
+
+  will-change: opacity;
+
+  transition:
+    opacity var(--intro-leave, 900ms)
+    cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/*
+ * During the crossfade:
+ * - the intro becomes transparent
+ * - the website underneath becomes interactive
+ */
+.overlay[data-phase="leaving"] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/*
+ * Video / fallback logo.
+ */
+.media {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  transform: scale(1);
+  transform-origin: 50% 50%;
+
+  backface-visibility: hidden;
+
+  will-change: transform;
+
+  transition:
+    transform var(--intro-leave, 900ms)
+    cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/*
+ * Very subtle push-in while the intro hands over
+ * to the actual MEG website.
+ */
+.overlay[data-phase="leaving"] .media {
+  transform: scale(1.04);
+}
+
+/*
+ * Reduced motion.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .overlay {
+    transition: none;
+  }
+
+  .media {
+    transition: none;
+  }
+
+  .overlay[data-phase="leaving"] .media {
+    transform: none;
+  }
+}
