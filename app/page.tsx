@@ -26,7 +26,7 @@ import {
 } from "@/data/catalog";
 
 export const metadata = {
-  title: "MEG Electrical Solutions | Electrical Retail & Wholesale",
+  title: "MEG Electrical Solutions",
   description:
     "Explore lighting, switches, wires, protection and industrial electrical products from established brands through MEG Electrical Solutions.",
   openGraph: {
@@ -44,15 +44,21 @@ export default function HomePage() {
     <>
       {/* HERO */}
       <section className="relative min-h-[calc(100svh-5rem)] overflow-hidden bg-ink text-paper">
-        <img
-          src={seasonalCampaign.image}
-          alt="Decorative warm lighting display"
-          className="absolute inset-0 h-full w-full object-cover opacity-55"
-        />
+        {/* Background Loop Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover opacity-65"
+        >
+          <source src={seasonalCampaign.image} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
 
         <div className="absolute inset-0 bg-[linear-gradient(90deg,var(--ink)_0%,color-mix(in_oklab,var(--ink)_84%,transparent)_43%,transparent_84%)]" />
 
-        <div className="industrial-grid absolute inset-0 opacity-35" />
+        {/* <div className="industrial-grid absolute inset-0 opacity-35" /> */}
 
         <div className="relative mx-auto flex min-h-[calc(100svh-5rem)] max-w-[1500px] flex-col justify-between px-5 py-10 lg:px-10 lg:py-14">
           <div className="flex items-center justify-between">
@@ -166,85 +172,85 @@ export default function HomePage() {
       </section>
 
       {/* SEASONAL SELECTION */}
-<section className="bg-ink py-14 text-paper lg:py-20">
-  <div className="mx-auto max-w-[1500px] px-5 lg:px-10">
-    {/* Header */}
-    <div className="grid gap-6 border-b border-paper/20 pb-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-end lg:gap-12 lg:pb-10">
-      <div>
-        <p className="eyebrow">Seasonal selection</p>
+      <section className="bg-ink py-14 text-paper lg:py-20">
+        <div className="mx-auto max-w-[1500px] px-5 lg:px-10">
+          {/* Header */}
+          <div className="grid gap-6 border-b border-paper/20 pb-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-end lg:gap-12 lg:pb-10">
+            <div>
+              <p className="eyebrow">Seasonal selection</p>
 
-        <h2 className="mt-4 max-w-3xl font-display text-4xl uppercase leading-[0.88] sm:text-6xl lg:text-[clamp(3.5rem,5vw,5.5rem)]">
-          Illuminate
-          <br />
-          <span className="text-primary">the season.</span>
-        </h2>
-      </div>
-
-      <p className="max-w-md text-sm leading-6 text-paper/60 sm:text-base sm:leading-7 lg:pb-1">
-        From subtle ambience to celebration-ready decorative lighting and
-        heavy-duty cabling, discover formats for homes, venues and commercial
-        spaces.
-      </p>
-    </div>
-
-    {/* Product Cards */}
-    <div className="mt-8 grid gap-5 md:grid-cols-2 lg:mt-10">
-      {products
-        .filter((product) => {
-          const cat = product.category.toLowerCase();
-          const name = product.name.toLowerCase();
-
-          return (
-            cat.includes("lighting") ||
-            cat.includes("cable") ||
-            name.includes("light") ||
-            name.includes("cable")
-          );
-        })
-        .slice(0, 2)
-        .map((product) => (
-          <div
-            key={product.slug}
-            className="group relative flex overflow-hidden border border-border bg-paper text-ink transition-transform duration-500 hover:-translate-y-1"
-          >
-            {/* Product Image */}
-            <Link
-              href={`/products/${product.slug}`}
-              aria-label={`View ${product.name}`}
-              className="relative flex h-[270px] w-full items-center justify-center overflow-hidden bg-paper p-6 sm:h-[300px] sm:p-8"
-            >
-              <img
-                src={product.image}
-                alt={product.name}
-                className="h-full w-full object-contain object-center transition-transform duration-700 group-hover:scale-105"
-              />
-            </Link>
-
-            {/* Product Information */}
-            <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 bg-gradient-to-t from-paper via-paper/95 to-transparent px-5 pb-5 pt-14 sm:px-6 sm:pb-6">
-              <div className="min-w-0">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-primary">
-                  {product.category}
-                </p>
-
-                <h3 className="mt-1.5 font-display text-xl uppercase leading-none tracking-wide sm:text-2xl">
-                  {product.name}
-                </h3>
-              </div>
-
-              <Link
-                href={`/products/${product.slug}`}
-                aria-label={`View ${product.name}`}
-                className="inline-flex size-10 shrink-0 items-center justify-center rounded-md bg-primary text-primary-foreground transition-all duration-300 hover:scale-105 hover:bg-primary/90"
-              >
-                <ArrowRight className="size-4" />
-              </Link>
+              <h2 className="mt-4 max-w-3xl font-display text-4xl uppercase leading-[0.88] sm:text-6xl lg:text-[clamp(3.5rem,5vw,5.5rem)]">
+                Illuminate
+                <br />
+                <span className="text-primary">the season.</span>
+              </h2>
             </div>
+
+            <p className="max-w-md text-sm leading-6 text-paper/60 sm:text-base sm:leading-7 lg:pb-1">
+              From subtle ambience to celebration-ready decorative lighting and
+              heavy-duty cabling, discover formats for homes, venues and commercial
+              spaces.
+            </p>
           </div>
-        ))}
-    </div>
-  </div>
-</section>
+
+          {/* Product Cards */}
+          <div className="mt-8 grid gap-5 md:grid-cols-2 lg:mt-10">
+            {products
+              .filter((product) => {
+                const cat = product.category.toLowerCase();
+                const name = product.name.toLowerCase();
+
+                return (
+                  cat.includes("lighting") ||
+                  cat.includes("cable") ||
+                  name.includes("light") ||
+                  name.includes("cable")
+                );
+              })
+              .slice(0, 2)
+              .map((product) => (
+                <div
+                  key={product.slug}
+                  className="group relative flex overflow-hidden border border-border bg-paper text-ink transition-transform duration-500 hover:-translate-y-1"
+                >
+                  {/* Product Image */}
+                  <Link
+                    href={`/products/${product.slug}`}
+                    aria-label={`View ${product.name}`}
+                    className="relative flex h-[270px] w-full items-center justify-center overflow-hidden bg-paper p-6 sm:h-[300px] sm:p-8"
+                  >
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="h-full w-full object-contain object-center transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </Link>
+
+                  {/* Product Information */}
+                  <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 bg-gradient-to-t from-paper via-paper/95 to-transparent px-5 pb-5 pt-14 sm:px-6 sm:pb-6">
+                    <div className="min-w-0">
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-primary">
+                        {product.category}
+                      </p>
+
+                      <h3 className="mt-1.5 font-display text-xl uppercase leading-none tracking-wide sm:text-2xl">
+                        {product.name}
+                      </h3>
+                    </div>
+
+                    <Link
+                      href={`/products/${product.slug}`}
+                      aria-label={`View ${product.name}`}
+                      className="inline-flex size-10 shrink-0 items-center justify-center rounded-md bg-primary text-primary-foreground transition-all duration-300 hover:scale-105 hover:bg-primary/90"
+                    >
+                      <ArrowRight className="size-4" />
+                    </Link>
+                  </div>
+                </div>
+              ))}
+          </div>
+        </div>
+      </section>
 
       {/* PRODUCT DISCOVERY */}
       <section className="mx-auto max-w-[1500px] px-5 py-24 lg:px-10 lg:py-32">
@@ -358,14 +364,14 @@ export default function HomePage() {
 
       {/* CTA */}
       <section className="bg-primary text-primary-foreground">
-        <div className="mx-auto flex max-w-[1500px] flex-col items-start justify-between gap-8 px-5 py-20 lg:flex-row lg:items-end lg:px-10">
-          <h2 className="max-w-4xl font-display text-5xl uppercase leading-[.9] sm:text-7xl">
+        <div className="mx-auto flex max-w-[1500px] flex-col items-start justify-between gap-8 px-5 py-16 lg:flex-row lg:items-end lg:px-10 lg:py-20">
+          <h2 className="max-w-4xl font-display text-4xl uppercase leading-[0.95] sm:text-5xl lg:text-7xl">
             Planning a project or bulk requirement?
           </h2>
 
           <Link
             href="/contact"
-            className="inline-flex h-11 items-center justify-center gap-2 rounded-md border border-ink bg-ink px-6 text-sm font-semibold text-paper transition-colors hover:bg-background hover:text-foreground"
+            className="inline-flex h-11 shrink-0 items-center justify-center gap-2 rounded-md border border-ink bg-ink px-6 text-sm font-semibold text-paper transition-colors hover:bg-background hover:text-foreground"
           >
             Talk to MEG
             <ArrowRight className="size-4" />

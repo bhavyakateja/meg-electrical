@@ -97,7 +97,7 @@ const brands: Brand[] = [
   },
   {
     name: "Symphony",
-    logo: "/brands/sumphony.png",
+    logo: "/brands/symphony.png",
     href: "https://symphonylimited.com/",
   },
   {

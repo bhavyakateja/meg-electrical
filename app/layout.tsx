@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: "/favicon.png",
+    icon: "images/favicon.ico",
   },
 };
 

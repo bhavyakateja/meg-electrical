@@ -152,8 +152,8 @@ export default function ProductsPage() {
                       <ShieldCheck className="size-4 text-primary opacity-80" />
                     </div>
 
-                    {/* Product Image */}
-                    <div className="relative mt-6 aspect-[4/3] w-full overflow-hidden border border-border/50 bg-zinc-950/40">
+                    {/* Product Image Frame with White Background */}
+                    <div className="relative mt-6 aspect-[4/3] w-full overflow-hidden border border-border/50 bg-white">
                       <Image
                         src={product.image}
                         alt={product.name}

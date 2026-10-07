@@ -11,7 +11,7 @@ export type Product = {
 };
 
 const assets = {
-  hero: "/products/ac.jpg",
+  hero: "/images/hero-1.mp4",
   lighting: "/products/lights.webp",
   decorative: "/products/switch.jpg",
 };
@@ -47,19 +47,18 @@ export const categories = [
 
 export const products: Product[] = [
   {
-    slug: "air-conditioner",
-    name: "Air Conditioner",
-    category: "Appliances & Cooling",
+    slug: "led-lighting",
+    name: "LED Lighting",
+    category: "Lighting & Wiring",
     brand: "Multiple established brands",
-    summary: "High-efficiency commercial & residential split AC units with advanced climate control.",
-    applications: ["Residential bedrooms", "Office cabins", "Commercial suites"],
+    summary: "Premium indoor and outdoor illumination fixtures delivering high lumens per watt.",
+    applications: ["Retail spaces", "Offices", "Facade illumination"],
     specs: [
-      "Energy-saving inverter technology",
-      "Rapid cooling performance",
-      "Enquire for capacity options",
+      "High luminous efficiency",
+      "Long operating lifespan",
+      "Multiple color temperatures",
     ],
-    image: "/products/ac.jpg",
-    badge: "Coming Soon",
+    image: "/products/lights.webp",
   },
   {
     slug: "fans",
@@ -174,20 +173,6 @@ export const products: Product[] = [
     image: "/products/refridgerator.jpg",
   },
   {
-    slug: "led-lighting",
-    name: "LED Lighting",
-    category: "Lighting & Wiring",
-    brand: "Multiple established brands",
-    summary: "Premium indoor and outdoor illumination fixtures delivering high lumens per watt.",
-    applications: ["Retail spaces", "Offices", "Facade illumination"],
-    specs: [
-      "High luminous efficiency",
-      "Long operating lifespan",
-      "Multiple color temperatures",
-    ],
-    image: "/products/lights.webp",
-  },
-  {
     slug: "wires-and-cables",
     name: "Wires & Cables",
     category: "Lighting & Wiring",
@@ -256,6 +241,21 @@ export const products: Product[] = [
       "Standard diameter variants",
     ],
     image: "/products/pipes.png",
+  },
+  {
+    slug: "air-conditioner",
+    name: "Air Conditioner",
+    category: "Appliances & Cooling",
+    brand: "Multiple established brands",
+    summary: "High-efficiency commercial & residential split AC units with advanced climate control.",
+    applications: ["Residential bedrooms", "Office cabins", "Commercial suites"],
+    specs: [
+      "Energy-saving inverter technology",
+      "Rapid cooling performance",
+      "Enquire for capacity options",
+    ],
+    image: "/products/ac.jpg",
+    badge: "Coming Soon",
   },
 ];
 

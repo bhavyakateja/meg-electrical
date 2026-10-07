@@ -35,8 +35,17 @@ const nav = [
 function BrandLogo() {
   return (
     <img
-      src="images/meg-logo-neon.png"
+      src="images/meg-logo.png"
       alt="MEG Electrical Solutions"
+      className="h-80 w-auto object-contain"
+    />
+  );
+}
+function BrandLogo2() {
+  return (
+    <img
+      src="images/meg-logo-2.png"
+      alt="MEG a unit of Mangal Enterprises"
       className="h-80 w-auto object-contain"
     />
   );
@@ -237,7 +246,7 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-[1500px] gap-10 px-5 py-16 grid-cols-2 sm:grid-cols-3 lg:grid-cols-[1.5fr_1fr_1fr_1fr] lg:px-10">
         {/* Brand Column: Centered on mobile/tablet, left-aligned on desktop */}
         <div className="col-span-2 sm:col-span-3 lg:col-span-1 flex flex-col items-center text-center lg:items-start lg:text-left">
-          <BrandLogo />
+          <BrandLogo2 />
 
           <p className="mt-6 max-w-sm text-sm leading-6 text-paper/60">
             Electrical products for residential, commercial and industrial
@@ -249,8 +258,6 @@ export function SiteFooter() {
           title="Products"
           links={[
             ["All products", "/products"],
-            ["Lighting", "/products"],
-            ["Protection", "/products"],
           ]}
         />
 
@@ -275,9 +282,20 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-paper/10 px-5 py-6 text-xs text-paper/45 lg:px-10">
-        <div className="mx-auto flex max-w-[1500px] flex-wrap justify-between gap-3">
+        <div className="mx-auto flex max-w-[1500px] flex-wrap justify-between items-center gap-3">
           <span>© 2026 MEG Electrical Solutions</span>
           <span>Retail · Wholesale · Product sourcing</span>
+          <span className="text-[8px] text-white/[0.03] transition-colors duration-300">
+            Built by{" "}
+            <a
+              href="https://github.com/bhavyakateja"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/[0.03] hover:text-[#ccff00] hover:drop-shadow-[0_0_8px_rgba(204,255,0,0.8)] transition-all duration-300"
+            >
+              Bhavya Kateja
+            </a>
+          </span>
         </div>
       </div>
     </footer>

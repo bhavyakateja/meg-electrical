@@ -15,10 +15,10 @@ export function ProductCard({ product }: { product: Product }) {
           <ShieldCheck className="size-4 text-primary opacity-80" />
         </div>
 
-        {/* Product Image Frame */}
+        {/* Product Image Frame with White Background */}
         <Link
           href={`/products/${product.slug}`}
-          className="relative mt-6 block aspect-[4/3] w-full overflow-hidden bg-zinc-950/40 border border-border/50"
+          className="relative mt-6 block aspect-[4/3] w-full overflow-hidden bg-white border border-border/50"
         >
           <Image
             src={product.image}
